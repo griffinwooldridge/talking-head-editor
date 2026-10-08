@@ -11,8 +11,9 @@ PY=${PYTHON:-python3}
 if [ ! -x "$SK/.venv/bin/python" ]; then "$PY" -m venv "$SK/.venv"; fi
 "$SK/.venv/bin/pip" install -q --upgrade pip
 "$SK/.venv/bin/pip" install -q "numpy<2" "torch==2.5.1" "torchaudio==2.5.1" deepfilternet openai-whisper opencv-python-headless
+mkdir -p "$SK/mg/vendor"
 if [ ! -s "$SK/mg/vendor/gsap.min.js" ]; then
-  curl -sL https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js -o "$SK/mg/vendor/gsap.min.js"
+  curl -fsSL https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js -o "$SK/mg/vendor/gsap.min.js"
 fi
 npx --yes hyperframes@0.8.52 --version >/dev/null && echo "hyperframes ok"
 "$SK/.venv/bin/python" -c "import whisper, df, cv2; print('python deps ok')"
