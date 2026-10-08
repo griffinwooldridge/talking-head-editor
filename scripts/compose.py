@@ -32,6 +32,8 @@ fc.append(f"[b{bi}]trim=start_frame={pos},setpts=PTS-STARTPTS,setsar=1,format=yu
 fc.append(''.join(segs) + f"concat=n={len(segs)}:v=1:a=0,{TB}[base]")
 cap = 'mg/renders/captions.mov'
 if not a.no_captions and os.path.exists(cap):
+    cfps = probe(cap)['fps']   # a 30 fps caption render restamped with setpts=N drifts later and later
+    assert cfps == fps, f'{cap} is {cfps} fps but the cut is {fps}: re-run captions.py (it renders with --fps from plan.json)'
     inputs += ['-i', cap]; fc.append(f"[{len(runs) + 1}:v]{TB},format=yuva444p[cp];[base][cp]overlay=0:0:eof_action=pass:format=auto,format=yuv420p[v]")
 else: fc.append('[base]null[v]')
 TMP = a.out + '.tmp.mp4'
