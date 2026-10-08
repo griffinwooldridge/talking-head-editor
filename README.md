@@ -36,7 +36,7 @@ If your default `python3` is 3.13 or newer, point setup at an older one: `PYTHON
 In Claude Code, from a folder with your raw recording:
 
 ```
-/talking-head-editor edit source.mp4 into a tight 60-second video with motion graphics
+/talking-head-editor edit source.mp4
 ```
 
 Claude follows [SKILL.md](SKILL.md): clean the voice, transcribe, choose takes, cut, plan the graphics, reframe, write and critique each graphic, render, caption and compose into `out/final.mp4`. Give notes the way you would to an editor ("tighten the intro", "that graphic is too busy", "rethink the outro") and it edits the scripts and re-renders.
