@@ -46,7 +46,7 @@ Read the whole transcript, then write `edit/keep.json`:
 - **Read the audit it prints.** Listen to every flagged tail. The longest silence should be under ~0.2 s.
 
 ## 4. Plan the motion graphics (the part that makes it look edited)
-**Read `references/motion.md` first; it is the standard.** Then write `mg/plan.json`:
+**Read `references/motion.md` and `references/techniques.md` first; they are the standard.** Restyle the look to the topic's brand before any run (`references/look.md`, `scripts/extract_brand.js`). For each run write a brief from `references/brief.md`: the object chain, one event per word, the banned list. Then write `mg/plan.json`:
 ```json
 {"fps": "24000/1001", "size": [1920, 1080],
  "runs": [{"id": "r01", "kind": "ov", "a": 3.20, "b": 9.85, "note": "one sentence: what object exists, what it becomes, on which word"}]}
@@ -85,7 +85,7 @@ Build and check:
 ```bash
 cd mg && python3 build.py && ./snap.sh r01 0.4,1.5,3.0,5.2   # snapshots at the beat times
 ```
-Critique every contact sheet like a motion designer before rendering (checklist in `references/motion.md`) and fix what fails.
+Critique every contact sheet like a motion designer before rendering (checklists in `references/motion.md` and `references/techniques.md`) and fix what fails. After rendering, run `python3 $SK/scripts/qa.py mg/renders/r01.mp4` on each run: it flags single-frame pops, frozen stretches and tile artifacts.
 
 ## 7. Render, caption, compose
 ```bash
@@ -100,6 +100,9 @@ Pass `--fix fix.json` to captions.py to correct brand names whisper mishears.
 - Re-transcribe `out/final.mp4` and diff it against the keep list: no missing or doubled words.
 - Look at the first frame of every run (no flash of the old picture) and the last.
 - Report what you made with timestamps, and offer the next round of notes. Re-renders overwrite in place; don't keep version copies.
+
+## Standalone graphics (no footage)
+For a pure motion piece (a test, an intro, a sting), skip steps 1-3 and 5: copy `$SK/mg`, restyle it to the brand, write `mg/plan.json` with one `ff` run (`"a": 0, "b": <seconds>`), and time beats on a 120 BPM grid in place of `wt()`. Build, snapshot, critique, `./render.sh r01`, run qa.py; the render is the deliverable.
 
 ## Gotchas
 - Never centre with CSS `translate(-50%)` on anything you also move from JS; position with left/top.

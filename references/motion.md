@@ -1,5 +1,7 @@
 # Motion graphics standard
 
+Read this, then `techniques.md` (the build techniques and banned list), and write a brief per run from `brief.md` before any code.
+
 This is the bar for every MG run. These strategies make the graphics look designed and edited by hand, instead of slides with motion attached. The examples refer to `mg/examples/` and to the video this skill was built for, where every graphic was made this way.
 
 ## Why this works

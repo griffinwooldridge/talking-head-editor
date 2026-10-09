@@ -18,7 +18,7 @@ The 30-second demo above was made by running this skill on raw camera footage, r
 | Captions | Word-timed cards with the spoken word highlighted, under the face during split shots, hidden during full-frame graphics. |
 | Compose | Frame-exact assembly, frame count and decode verified. |
 
-The motion standard the skill holds itself to is in [references/motion.md](references/motion.md): object chains instead of scene cuts, the mechanism shown literally, a camera that moves only on beats, a cursor as the actor, and real footage inside the graphics.
+The motion standard the skill holds itself to is in [references/motion.md](references/motion.md): object chains instead of scene cuts, the mechanism shown literally, a camera that moves only on beats, a cursor as the actor, and real footage inside the graphics. [references/techniques.md](references/techniques.md) adds the build techniques learned from studying [prompt-motion.com](https://prompt-motion.com): summed closed-form springs, two-edge springs, flood/iris/goo/liquid-glass transitions, velocity blur, a per-run brief with a banned list, and a QA scan for single-frame pops. Every graphic is restyled to the topic's brand first ([references/look.md](references/look.md), `scripts/extract_brand.js`).
 
 ## Install
 
@@ -45,10 +45,10 @@ Claude follows [SKILL.md](SKILL.md): clean the voice, transcribe, choose takes, 
 
 ```
 SKILL.md              the workflow Claude follows
-scripts/              voice, transcribe, cut, render_cut, captions, compose, setup
+scripts/              voice, transcribe, cut, render_cut, captions, compose, qa, extract_brand, setup
 mg/kit/               cine.js + motion-kit.js (seek-safe motion helpers), cine.css (the look)
 mg/examples/          three full graphics to learn from
-references/           motion standard, cutting rules, restyling for a brand
+references/           motion standard, techniques, run brief, cutting rules, restyling for a brand
 ```
 
 ## License
