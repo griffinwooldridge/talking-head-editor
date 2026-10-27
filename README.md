@@ -2,9 +2,9 @@
 
 A Claude skill that edits raw talking-head footage into a finished video: tight cuts that never clip a word, studio-clean voice, reframing, word-timed captions, and cinematic motion graphics written as code.
 
-![talking-head-editor demo](docs/demo.gif)
+[![talking-head-editor demo, click to play with sound](docs/demo_poster.jpg)](docs/demo.mp4)
 
-The 30-second demo above was made by running this skill on raw camera footage, retakes and all. Install page: **[griffinwooldridge.com/skills/talking-head-editor](https://griffinwooldridge.com/skills/talking-head-editor)**
+The 22-second demo above (click to play, sound on) was made by running this skill on one raw camera take, retakes and all: the cut, clean voice, grade, captions and every motion graphic. Install page: **[griffinwooldridge.com/skills/talking-head-editor](https://griffinwooldridge.com/skills/talking-head-editor)**
 
 ## What it does
 
